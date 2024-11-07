@@ -1,0 +1,17 @@
+# Web Framework
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
+# LangChain
+langchain>=0.1.0
+langchain-openai>=0.0.2
+langserve>=0.0.30
+
+# Dependency
+python-dotenv>=1.0.0
+pydantic>=2.5.2
+
+# Optional - for development
+pytest>=7.4.3
+black>=23.11.0
+flake8>=6.1.0
