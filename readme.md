@@ -14,6 +14,9 @@ El servicio sigue una arquitectura simple:
 3. La API de OpenAI realiza la traducción real
 4. Se puede acceder al servicio tanto a través de la API HTTP como mediante un cliente Python
 
+   ![image](https://github.com/user-attachments/assets/4b1506a6-1d0a-4c1b-8769-dd7f47d33701)
+
+
 ## Primeros Pasos
 
 ### Requisitos Previos
@@ -36,8 +39,8 @@ uvicorn
 
 1. Clona el repositorio:
 ```bash
-git clone <url-del-repositorio>
-cd servicio-traduccion
+git clone https://github.com/Erick01081/LabArepLLM.git
+cd LabArepLLM
 ```
 
 2. Instala las dependencias:
@@ -46,17 +49,21 @@ pip install -r requirements.txt
 ```
 
 3. Configura tu clave API de OpenAI:
+En linux:
 ```bash
 export OPENAI_API_KEY='tu-clave-api-aqui'
+```
+En windows
+```bash
+set OPENAI_API_KEY=tu-clave-api-aqui
 ```
 
 ### Ejecutando el Servicio
 
 1. Inicia el servidor FastAPI:
 ```bash
-python main.py
+python langChainServer.py
 ```
-
 El servidor se iniciará en `http://localhost:8000`
 
 2. Usa el cliente:
@@ -90,12 +97,17 @@ curl -X POST "http://localhost:8000/chain/" \
      -d '{"language": "italian", "text": "hola"}'
 ```
 
+## Uso de la API
+
+Para usar el cliente pode defecto puedes entrar a `http://localhost:8000/chain/playground/`
+
 ## Desarrollo
 
 ### Estructura del Proyecto
 ```
 .
-├── main.py              # Aplicación FastAPI y definición de la cadena
+├── langChainServer.py              # Aplicación FastAPI y definición de la cadena
+├── langchainclinet.py    # Ejemplo de cliente del servidor
 ├── requirements.txt     # Dependencias del proyecto
 └── README.md           # Este archivo
 ```
@@ -103,7 +115,7 @@ curl -X POST "http://localhost:8000/chain/" \
 ### Agregando Nuevas Funcionalidades
 
 Para extender el servicio de traducción, puedes:
-1. Modificar la plantilla de prompt en `main.py`
+1. Modificar la plantilla de prompt en `langChainServer.py`
 2. Agregar nuevos endpoints en la aplicación FastAPI
 3. Mejorar la cadena de LangChain con pasos adicionales
 
@@ -115,9 +127,6 @@ Para extender el servicio de traducción, puedes:
 4. Sube la rama (`git push origin feature/nueva-funcion`)
 5. Abre un Pull Request
 
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo LICENSE para más detalles.
 
 ## Agradecimientos
 
